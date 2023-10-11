@@ -1,0 +1,28 @@
+[user]
+        email = me@example.com
+        name = my name
+[core]
+        editor = vim
+[merge]
+        tool = kdiff3
+[mergetool "kdiff3"]
+        trustExitCode = false
+[diff]
+        tool = kdiff3
+
+ [color]
+     ui = auto
+
+ [color]
+     decorate = short
+
+ [alias]
+     ci = commit
+     di = diff --color-words
+     st = status
+
+     # aliases that match the hg in / out commands
+     out      = !git fetch && git log FETCH_HEAD..
+     outgoing = !git fetch && git log FETCH_HEAD..
+     in       = !git fetch && git log ..FETCH_HEAD
+     incoming = !git fetch && git log ..FETCH_HEAD
