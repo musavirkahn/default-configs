@@ -2,7 +2,15 @@
         email = me@example.com
         name = my name
 [core]
-        editor = vim
+    editor = vim
+    excludesfile = ~/.gitignore
+    pager = delta
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+[interactive]
+	diffFilter = delta --color-only
 [merge]
         tool = kdiff3
 [mergetool "kdiff3"]
@@ -20,9 +28,19 @@
      ci = commit
      di = diff --color-words
      st = status
-
+     
      # aliases that match the hg in / out commands
      out      = !git fetch && git log FETCH_HEAD..
      outgoing = !git fetch && git log FETCH_HEAD..
      in       = !git fetch && git log ..FETCH_HEAD
-     incoming = !git fetch && git log ..FETCH_HEAD
+     dc = diff --cached
+     ch = cherry-pick -x
+[credential]
+	helper = store
+[pull]
+	rebase = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
